@@ -31,16 +31,24 @@ public class Note implements Parcelable {
     @NonNull
     private String _updated_timestamp;
 
+    @Ignore
+    private String _title_original, _content_original;
+
     public Note(Integer id, String title, String content, String created_timestamp, String updated_timestamp) {
         this._id = id;
         this._title = title;
         this._content = content;
         this._created_timestamp = created_timestamp;
         this._updated_timestamp = updated_timestamp;
+
+        _title_original = this._title;
+        _content_original = this._content;
     }
 
     @Ignore
     public Note() {
+        _title_original = this._title;
+        _content_original = this._content;
     }
 
     protected Note(Parcel in) {
@@ -53,6 +61,8 @@ public class Note implements Parcelable {
         _content = in.readString();
         _created_timestamp = in.readString();
         _updated_timestamp = in.readString();
+        _title_original = in.readString();
+        _content_original = in.readString();
     }
 
     public static final Creator<Note> CREATOR = new Creator<Note>() {
@@ -66,17 +76,6 @@ public class Note implements Parcelable {
             return new Note[size];
         }
     };
-
-    @Override
-    public String toString() {
-        return "Note{" +
-                "_id=" + _id +
-                ", _title='" + _title + '\'' +
-                ", _content='" + _content + '\'' +
-                ", _created_timestamp='" + _created_timestamp + '\'' +
-                ", _updated_timestamp='" + _updated_timestamp + '\'' +
-                '}';
-    }
 
     //setters
     public void set_id(Integer _id) { this._id = _id; }
@@ -100,7 +99,19 @@ public class Note implements Parcelable {
 
     public boolean equals(Note note) { return _title.equals(note._title) && _content.equals(note._content); }
 
+    public boolean changed() {
+        return !(this._title.equals(_title_original) && this._content.equals(_content_original));
+    }
+
     public boolean isNew() { return _id == null; }
+
+    public boolean isEmpty() {
+        return _title.isEmpty() && _content.isEmpty();
+    }
+
+    public boolean canSave() {
+        return !isNew() || (isNew() && !isEmpty());
+    }
 
     @Override
     public int describeContents() {
@@ -119,5 +130,20 @@ public class Note implements Parcelable {
         dest.writeString(_content);
         dest.writeString(_created_timestamp);
         dest.writeString(_updated_timestamp);
+        dest.writeString(_title_original);
+        dest.writeString(_content_original);
+    }
+
+    @Override
+    public String toString() {
+        return "Note{" +
+                "_id=" + _id +
+                ", _title='" + _title + '\'' +
+                ", _content='" + _content + '\'' +
+                ", _created_timestamp='" + _created_timestamp + '\'' +
+                ", _updated_timestamp='" + _updated_timestamp + '\'' +
+                ", _title_original='" + _title_original + '\'' +
+                ", _content_original='" + _content_original + '\'' +
+                '}';
     }
 }
