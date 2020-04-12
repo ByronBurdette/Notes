@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="10dp"
+    android:elevation="2dp"
+>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:gravity="center_vertical">
+
+
+
+            <TextView
+                android:id="@+id/note_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="75"
+                android:textSize="23sp"
+                android:lines="1"
+                android:hint="No title"
+                android:textColor="#000"
+                android:ellipsize="end"
+            />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                />
+
+            <TextView
+                android:id="@+id/note_timestamp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:text="05/03/1991 5:00 AM"
+                />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+
+    <TextView
+        android:id="@+id/note_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:minLines="2"
+        android:text="this is somce text for the contentlk jasdhlf kajsdh flkasjh dflkajsh dflkjash dflkajs hdflkjas hdflkjash dflkj hka jsdhfkl ajsdhf kjashdfkljash dfkjla ">
+
+    </TextView>
+    
+
+</LinearLayout>

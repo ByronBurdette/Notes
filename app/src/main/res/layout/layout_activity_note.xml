@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_note"
+    android:padding="20dp"
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="85"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Enter title"
+                android:paddingLeft="0dp"
+                android:textColor="@color/black"
+                android:background="@android:color/transparent"
+                android:textSize="23sp">
+            </EditText>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/LightLightGrey"
+                android:layout_marginVertical="5dp">
+            </View>
+
+        </LinearLayout>
+
+
+
+        <ImageButton
+            android:id="@+id/button_save"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="15"
+            android:src="@drawable/ic_save_black_40dp"
+            android:background="?attr/selectableItemBackground"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            >
+        </ImageButton>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_content"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editText_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="23sp"
+                android:textColor="@color/black"
+                android:gravity="top"
+                android:hint="Enter note"
+                android:background="@android:color/transparent"
+                android:imeOptions="flagNoExtractUi"
+                >
+
+            </EditText>
+
+
+            <TextView
+                android:id="@+id/textView_updateTimestamp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Last modified: Feb 29, 2020"
+                android:layout_marginTop="20dp">
+
+            </TextView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
