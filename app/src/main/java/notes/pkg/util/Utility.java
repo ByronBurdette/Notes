@@ -7,6 +7,8 @@ public class Utility {
     public static String ezDate(String timestamp) {
         String year=timestamp.substring(0,4), month=timestamp.substring(5,7), day=timestamp.substring(8,10), date="";
 
+        String str = "This is a test for Git";
+
         if (timestamp != null)
             date=getMonthFromNumber(month) + " " + day + ", " + year;
 
